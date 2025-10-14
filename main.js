@@ -7,11 +7,12 @@ const noPostEl = document.getElementById("no-post");
 const formEl = document.getElementById("formEl");
 const inputModal = document.getElementById("input-modal");
 const createBtnEl = document.getElementById("createBtnEl");
-const updatePostId = null;
+let updatePostId = null;
 const contentEl = document.getElementById("content");
 const descriptionEl = document.getElementById("description");
 const authorEl = document.getElementById("author");
 const urlEl = document.getElementById("url");
+const editBtnEl = document.getElementById("edit");
 
 let posts = [];
 
@@ -50,7 +51,7 @@ try {
 function render(){
 cardsEl.innerHTML = posts.map((post)=>{
     return `
-    <div class="card">
+    <div class="card" onclick = "openModal(${post.id})">
 <img src= "${post.imgUrl}">
 <div class="card-bottom">
     <h5>${post.title}</h5>
@@ -118,7 +119,7 @@ const newPost= {
 }
 
 try {
-    if(!updatePost){
+    if(!updatePostId){
      const res =  await fetch("https://crud-nodejs-ixa1.onrender.com/api/posts",{
         method: 'POST',
         headers:{
@@ -130,10 +131,10 @@ try {
     })
         if(res.ok){
     getData();
-    form.reset();
+    formEl.reset();
 }
     }else{
-           const res =  await fetch("https://crud-nodejs-ixa1.onrender.com/api/posts",{
+        const res =  await fetch(`https://crud-nodejs-ixa1.onrender.com/api/posts/${updatePostId}`,{
         method: 'PUT',
         headers:{
             'Content-Type':'application/json',
@@ -144,7 +145,7 @@ try {
     })
         if(res.ok){
     getData();
-    form.reset();
+    formEl.reset();
 }  
     }
 
@@ -188,7 +189,18 @@ const updatedPost = posts.find(p=>p.id==id);
 contentEl.value = updatedPost.title;
 descriptionEl.value = updatedPost.content;
 authorEl.value =updatedPost.author;
-urlEl.value = updatedPost.url;
+urlEl.value = updatedPost.imgUrl;
 
+console.log(updatedPost);
+cardsEl.style.display="none";
+postHeaderEl.style.display="none";
+inputModalEl.style.display="flex";
+createBtnEl.innerHTML="add";
+}
+editBtnEl.addEventListener("click", ()=>{
+    
+})
+function openModal(id){
+const card = posts.find(c=>c.id==id);
 
 }
