@@ -13,6 +13,8 @@ const descriptionEl = document.getElementById("description");
 const authorEl = document.getElementById("author");
 const urlEl = document.getElementById("url");
 const editBtnEl = document.getElementById("edit");
+const cardInfoModalEl = document.getElementById("cardInfoModal");
+const cardExit = document.getElementById("exit");
 
 let posts = [];
 
@@ -73,7 +75,7 @@ cardsEl.innerHTML = posts.map((post)=>{
 <div class="btns">
 
         
-    <button onclick = "updatePost(${post.id})">
+    <button onclick = "event.stopPropagation(); updatePost(${post.id})">
         <img src="./images/pen-solid-full.svg" class="icon" alt="">
         tahrirlash</button>
 
@@ -196,11 +198,19 @@ cardsEl.style.display="none";
 postHeaderEl.style.display="none";
 inputModalEl.style.display="flex";
 createBtnEl.innerHTML="add";
+// cardInfoModalEl.style.display="flex";
 }
 editBtnEl.addEventListener("click", ()=>{
     
 })
 function openModal(id){
 const card = posts.find(c=>c.id==id);
-
+cardsEl.style.display="none";
+postHeaderEl.style.display="none";
+cardInfoModalEl.style.display="flex";
 }
+cardExit.addEventListener("click", ()=>{
+    cardInfoModalEl.style.display="none";
+    cardsEl.style.display="grid";
+    postHeaderEl.style.display="flex";
+})

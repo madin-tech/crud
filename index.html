@@ -18,7 +18,7 @@
         Add Post</button>
   </div>
   <div class="cards" id="cards">
-<div class="card">
+<div class="card" id="card">
 <img src="https://picsum.photos/800/400?random=3" alt="Uchinchi post" class="post-image" onerror="this.src='https://picsum.photos/800/400?random=' + 3">
 <div class="card-bottom">
     <!-- <h5>Uchinchi Post</h5>
@@ -95,14 +95,36 @@
     <h1>No Posts Yet (^-^*)</h1>
   </div>
     </div>
-    <div class="modal-bg">
+    <div class="modal-bg" id="cardInfoModal">
 <div class="modal">
 <div class="modal-top">
-<h3>Post Tafsilotlari</h3>
-<img src="./images/xMark-white.svg" alt="">
+<h3>Post Tafsilotlari</h3> 
+<img src="./images/xMark-white.svg" id="exit" alt="">
 </div>
 <div class="modal-bottom">
 <img src="https://picsum.photos/800/400?random=10" alt="sdfxcbv" class="post-detail-image" onerror="this.src='https://picsum.photos/800/400?random=' + 10">
+<div class="modal-texts">
+    <h3>Malibu</h3>
+    <h4 class="with-margin">malibu haqida</h4>
+    <div class="infos-box">
+        <div class="infos">
+            <h6>Muallif:</h6>
+            <p>smn</p>
+        </div>
+            <div class="infos">
+            <h6>Yaratilgan sana:</h6>
+            <p>2025 M10 14 22:06</p>
+        </div>
+            <div class="infos">
+            <h6>Ko'rishlar soni:</h6>
+            <p>1</p>
+        </div>
+        
+    </div>
+    <div class="close-btn-box">
+        <button class="close-btn">close</button>
+    </div>
+</div>
 </div>
 </div>
     </div>
@@ -110,7 +132,7 @@
 <div class="input-modal" id="input-modal">
 <div class="modal-top">
 <h3>Post Tafsilotlari</h3>
-<img src="./images/xMark-white.svg" id="inputModal-exit" alt="">
+<img src="./images/xMark-white.svg" id="inputModal-exit" class="exit" alt="">
 </div>
 <form action="" id="formEl">
     <input id="content" name="contentEl" type="text" placeholder="sarlavha">

@@ -128,7 +128,7 @@ gap: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    display: none;
+   display: none;
 }
 .input-modal-bg {
     background-color: rgba(0, 0, 0, 0.5);
@@ -171,7 +171,8 @@ gap: 8px;
 .modal-bottom .post-detail-image{
     height: 300px;
     width: 600px;
-
+   margin-bottom: 10px;
+   margin-top: 20px;
 }
 form{
     display: flex;
@@ -212,4 +213,48 @@ cursor: pointer;
     font-size: 30px;
     color: white;
     font-weight: bold;
+}
+.infos-box{
+
+}
+.modal-texts h3{
+font-size: 28px;
+}
+.modal-texts h4{
+    font-size: 20px;
+}
+.infos h6{
+    font-size: 18px;
+}
+.infos p {
+    font-size: 18px;
+    color: rgba(0.6, 0.6, 0.6, 0.6);
+}
+.infos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.infos-box{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.modal-texts{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.with-margin{
+    margin-bottom: 20px;
+}
+.close-btn-box{
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.close-btn{
+    padding: 5px 8px;
 }
