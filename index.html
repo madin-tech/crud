@@ -8,16 +8,16 @@
 </head>
 <body>
     <div class="container">
-  <div class="posts-head">
+  <div class="posts-head" id="posts-head">
     <div class="header-text">
         <h2> Postlar Boshqaruvi</h2>
         <p>3 ta post</p>
     </div>
-    <button>
+    <button id="add-btn">
         <img src="./images/plus-solid-full.svg" alt="">
         Add Post</button>
   </div>
-  <div class="cards">
+  <div class="cards" id="cards">
 <div class="card">
 <img src="https://picsum.photos/800/400?random=3" alt="Uchinchi post" class="post-image" onerror="this.src='https://picsum.photos/800/400?random=' + 3">
 <div class="card-bottom">
@@ -37,20 +37,20 @@
     <img src="./images/eye-solid-full.svg" class="icon" alt="">
     <p class="normal-text">10 ko'rish</p>
 </div>
-<div>
-<div>
+<div class="btns">
+
         
     <button>
         <img src="./images/pen-solid-full.svg" class="icon" alt="">
         tahrirlash</button>
-</div>
-<div>
+
+
  <button>
        <img src="./images/trash-can-regular-full.svg" class="icon" alt="">
        o'chirish
  </button>
     
-</div>
+
 </div>
 </div>
 </div>
@@ -91,7 +91,39 @@
 </div>
 </div>
   </div>
+  <div id="no-post">
+    <h1>No Posts Yet (^-^*)</h1>
+  </div>
     </div>
+    <div class="modal-bg">
+<div class="modal">
+<div class="modal-top">
+<h3>Post Tafsilotlari</h3>
+<img src="./images/xMark-white.svg" alt="">
+</div>
+<div class="modal-bottom">
+<img src="https://picsum.photos/800/400?random=10" alt="sdfxcbv" class="post-detail-image" onerror="this.src='https://picsum.photos/800/400?random=' + 10">
+</div>
+</div>
+    </div>
+<div class="input-modal-bg" id="input-modal-bg">
+<div class="input-modal" id="input-modal">
+<div class="modal-top">
+<h3>Post Tafsilotlari</h3>
+<img src="./images/xMark-white.svg" id="inputModal-exit" alt="">
+</div>
+<form action="" id="formEl">
+    <input id="content" name="contentEl" type="text" placeholder="sarlavha">
+    <textarea name="descriptionEl" id="description" placeholder="description"></textarea>
+    <input type="text" name="authorEl" id="author" placeholder="Author">
+    <input type="url" name="imageEl" id="url" placeholder="Rasm Url">
+</form>
+<div class="btns">
+    <button id="createBtnEl">create</button>
+    <button>cancel</button>
+</div>
+</div>
+</div>
     <script src="./main.js"></script>
 </body>
 </html>
