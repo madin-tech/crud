@@ -27,6 +27,7 @@ modalInputExitEl.addEventListener("click", ()=>{
 cardsEl.style.display="grid";
 postHeaderEl.style.display="flex";
 inputModalEl.style.display="none";
+formEl.reset();
 })
 
 window.addEventListener("DOMContentLoaded",()=>{
@@ -80,7 +81,7 @@ cardsEl.innerHTML = posts.map((post)=>{
         tahrirlash</button>
 
 
- <button onclick = "deletePost(${post.id})" > 
+ <button onclick = " event.stopPropagation(); deletePost(${post.id})" > 
        <img src="./images/trash-can-regular-full.svg" class="icon" alt="">
        o'chirish
  </button>
@@ -148,6 +149,7 @@ try {
         if(res.ok){
     getData();
     formEl.reset();
+    updatePostId = null;
 }  
     }
 
@@ -182,6 +184,9 @@ if(confirm("Postni o'chirmoqchimisiz?")){
         
     }
     
+}else{
+  getData();
+  cardInfoModalEl.style.display="none";  
 }
 }
 function updatePost(id){
