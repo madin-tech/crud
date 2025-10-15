@@ -15,6 +15,8 @@ const urlEl = document.getElementById("url");
 const editBtnEl = document.getElementById("edit");
 const cardInfoModalEl = document.getElementById("cardInfoModal");
 const cardExit = document.getElementById("exit");
+const cardModalEl = document.getElementById("cardModalEl");
+const cancel = document.getElementById("cancel");
 
 let posts = [];
 
@@ -162,7 +164,7 @@ try {
     
 }
 
-console.log(newPost);
+
 
 
 
@@ -179,7 +181,7 @@ if(confirm("Postni o'chirmoqchimisiz?")){
     if(res.ok){
         getData();
     }
-     console.log(res);
+  
     } catch (error) {
         
     }
@@ -198,7 +200,7 @@ descriptionEl.value = updatedPost.content;
 authorEl.value =updatedPost.author;
 urlEl.value = updatedPost.imgUrl;
 
-console.log(updatedPost);
+
 cardsEl.style.display="none";
 postHeaderEl.style.display="none";
 inputModalEl.style.display="flex";
@@ -213,9 +215,57 @@ const card = posts.find(c=>c.id==id);
 cardsEl.style.display="none";
 postHeaderEl.style.display="none";
 cardInfoModalEl.style.display="flex";
+
+cardModalEl.innerHTML = 
+     `
+    <div class="modal" id="cardModalEl">
+<div class="modal-top">
+<h3>Post Tafsilotlari</h3> 
+<img src="./images/xMark-white.svg" id="exit" onclick = "exit()" alt="">
+</div>
+<div class="modal-bottom">
+<img src="${card.imgUrl}" alt="sdfxcbv" class="post-detail-image" onerror="this.src='https://picsum.photos/800/400?random=' + 10">
+<div class="modal-texts">
+    <h3>${card.title}</h3>
+    <h4 class="with-margin">${card.content}</h4>
+    <div class="infos-box">
+        <div class="infos">
+            <h6>Muallif:</h6>
+            <p>${card.author}</p>
+        </div>
+            <div class="infos">
+            <h6>Yaratilgan sana:</h6>
+            <p>${card.createdAt}</p>
+        </div>
+            <div class="infos">
+            <h6>Ko'rishlar soni:</h6>
+            <p>${card.viewCount}</p>
+        </div>
+        
+    </div>
+    <div class="close-btn-box">
+        <button class="close-btn" onclick = "exit()">close</button>
+    </div>
+</div>
+</div>
+</div>
+    `;
+
+
+
 }
 cardExit.addEventListener("click", ()=>{
     cardInfoModalEl.style.display="none";
     cardsEl.style.display="grid";
     postHeaderEl.style.display="flex";
+})
+function exit(){
+        cardInfoModalEl.style.display="none";
+    cardsEl.style.display="grid";
+    postHeaderEl.style.display="flex";
+}
+cancel.addEventListener("click", ()=>{
+cardsEl.style.display="grid";
+postHeaderEl.style.display="flex";
+inputModalEl.style.display="none";
 })
