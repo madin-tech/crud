@@ -272,6 +272,7 @@ inputModalEl.style.display="none";
 formEl.reset();
 })
 
+//i just wrote the code twice. don't care the codes below
 
 // const addBtnEl = document.getElementById("add-btn");
 // const inputModalEl = document.getElementById("input-modal-bg");
